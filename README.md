@@ -1,2 +1,2 @@
-# konfigurator
+# Konfigurator PC sestav
 GyBu seminarni prace
