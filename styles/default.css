@@ -1,0 +1,152 @@
+*{
+    font-size: 1em;
+    font-family: Trebuchet MS, sans-serif;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: #073B3A;
+}
+
+body{
+    font-size: 16px;
+}
+
+#telo{
+    background-color: #D8EED3;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+#hlavicka, #pata{
+	height: 100px;
+	position: relative;
+	margin: 0px;
+	padding: 20px;
+	padding-left: 50px;
+	background-color: #0B6E4F;
+	overflow: hidden;
+}
+
+#logo{
+	float: left;
+	padding-right: 30px;
+	max-height: 100px;
+	max-width: 100px;
+}
+
+#obsah{
+	overflow: hidden;
+}
+
+#menu{
+	float: left;
+	width: 15%;
+	height: 100%;
+	padding: 50px;
+}
+
+#hlavni_obsah{
+	overflow: hidden;
+	padding: 50px;
+	padding-right: 100px;
+	height: 100%;
+}
+
+#shop_box{
+	overflow: hidden;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin: 10px;
+	padding: 10px;
+}
+
+#thumb_ram{
+	height: 128px;
+	width: 128px;
+	margin-right: 20px;
+	float: left;
+	background-color: #fff;
+}
+
+#thumb_img{
+	max-height: 128px; 	
+	max-width: 128px;
+	display: block;
+	vertical-align: middle;
+	margin: auto;	
+}
+
+#shop_box_content{
+	float: left;
+	width: 80%;
+}
+
+#jmeno_zbozi, #cena{	
+	margin-right: 10px;
+	font-style: normal;
+}
+
+#pridat_button, #sestava_button{
+	float: right;
+	font-size: 1.5em;
+	font-style: normal;
+	font-weight: bold;
+	background-color: #0B6E4F;
+	color: #fff;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+#sestava_button{
+	background-color: #fff;
+	color: #0B6E4F;
+	margin-bottom: 30px;
+	margin-right: 70px;
+}
+
+#foto_zbozi{
+	float: left;
+	max-width: 500px;
+	max-height: auto;
+	margin: 20px;
+	margin-left: 0px;
+	border-style: solid;
+	border-color: #fff;
+	border-width: 30px;
+}
+
+#parametry_zbozi{
+	float: left;
+
+}
+
+ul{
+	list-style-type: none;
+	font-size: 1.2em;
+}
+
+a{
+	font-style: italic;
+}
+
+a:hover, #jmeno_zbozi:hover{
+	color: #08A045;
+}
+
+h1{
+	font-size: 2.5em;
+}
+
+h2{
+	font-size: 2em;
+}
+
+h3{
+	font-size: 1.5em;
+}
+
+#bila{
+	color: #fff;
+}
