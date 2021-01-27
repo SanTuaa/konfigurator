@@ -1,0 +1,2 @@
+# konfigurator
+GyBu seminarni prace
