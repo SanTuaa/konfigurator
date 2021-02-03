@@ -12,6 +12,24 @@ body{
     font-size: 16px;
 }
 
+ul{
+	list-style-type: none;
+	font-size: 1.2em;
+}
+
+h1{
+	font-size: 2.5em;
+}
+
+h2{
+	font-size: 2em;
+}
+
+h3{
+	font-size: 1.5em;
+}
+
+
 #telo{
     background-color: #D8EED3;
     width: 100%;
@@ -88,22 +106,28 @@ body{
 	font-style: normal;
 }
 
-#pridat_button, #sestava_button{
+#pridat_button, #header_button, #zbozi_button{
 	float: right;
 	font-size: 1.5em;
 	font-style: normal;
 	font-weight: bold;
 	background-color: #0B6E4F;
 	color: #fff;
-	padding: 5px;
+	padding: 7px;
 	border-radius: 10px;
 }
 
-#sestava_button{
+#header_button{
 	background-color: #fff;
 	color: #0B6E4F;
 	margin-bottom: 30px;
 	margin-right: 70px;
+	margin-top: -20px;
+}
+
+#zbozi_button{
+	float: left;
+	margin-top: 20px;
 }
 
 #foto_zbozi{
@@ -119,12 +143,7 @@ body{
 
 #parametry_zbozi{
 	float: left;
-
-}
-
-ul{
-	list-style-type: none;
-	font-size: 1.2em;
+	margin: 30px;
 }
 
 a{
@@ -135,18 +154,22 @@ a:hover, #jmeno_zbozi:hover{
 	color: #08A045;
 }
 
-h1{
-	font-size: 2.5em;
-}
-
-h2{
+input[type=text]{
 	font-size: 2em;
+	padding: 10px;
+	margin-top: 50px;
+	border-radius: 15px;
 }
 
-h3{
-	font-size: 1.5em;
+#empty{
+	height: 200px;
+	width: 100%;
 }
 
 #bila{
 	color: #fff;
+}
+
+#nedostupne{
+	color: #AF2424;
 }
