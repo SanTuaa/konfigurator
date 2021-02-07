@@ -29,7 +29,7 @@ define(SUBTITLE,'Konfigurátor PC sestav');
 			<div id="hlavicka">
 				<a href="."><img id="logo" src="./img/favicon_w.png"></a>
 				<h1 id="bila"><?=TITLE?></h1>
-				<h3 id="bila"><?=SUBTITLE?></h3>
+				<h3 id="bila"><?=SUBTITLE;?></h3>
 				<a href="./sestava.php"><div id="header_button">Moje sestava</div></a>
 			</div>
 			<div id="obsah">
