@@ -10,7 +10,7 @@
 }
 
 p{
-	    font-weight: 100;
+	font-weight: 100;
 }
 
 body{
@@ -111,8 +111,20 @@ h3{
 	font-style: normal;
 }
 
-#pridat_button, #pridano_button, #header_button, #zbozi_button, #nedostupny_button{
+#pridat_button, #pridano_button, #header_button, #nedostupny_button{
 	float: right;
+	font-size: 1.5em;
+	font-style: normal;
+	font-weight: bold;
+	background-color: #0B6E4F;
+	color: #fff;
+	padding: 7px;
+	border-radius: 10px;
+}
+
+#zbozi_button, #zbozi_nedostupny_button, #zbozi_pridano_button{
+	float: left;
+	margin-top: 20px;
 	font-size: 1.5em;
 	font-style: normal;
 	font-weight: bold;
@@ -130,16 +142,11 @@ h3{
 	margin-top: -20px;
 }
 
-#zbozi_button{
-	float: left;
-	margin-top: 20px;
-}
-
-#nedostupny_button{
+#nedostupny_button, #zbozi_nedostupny_button{
 	background-color: #AF2424;
 }
 
-#pridano_button{
+#pridano_button, #zbozi_pridano_button{
 	background-color: #08A045;
 }
 

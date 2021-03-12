@@ -1,9 +1,9 @@
 <?php
 if($_SERVER["SERVER_ADDR"]=="127.0.0.1"):
-    define(DB_HOST,'localhost');
-    define(DB_USERNAME,'root');
-    define(DB_PSW,'vertrigo');
-    define(DB_NAME,'konfigurator');
+    define('DB_HOST','localhost');
+    define('DB_USERNAME','root');
+    define('DB_PSW','vertrigo');
+    define('DB_NAME','konfigurator');
 endif;
 
 $connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PSW) or die ("Není možné připojit databázový server.");

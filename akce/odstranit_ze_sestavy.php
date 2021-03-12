@@ -1,12 +1,14 @@
 <?php
 include_once "../db.php";
 
+$id = 
+
 $q = "
 	DELETE FROM
 		sestavy_komp
 	WHERE
-		sestavy_komp.id_komponenty = '$_GET[id]'
-		AND sestavy_komp.id_sestavy = '$_SESSION[s]'
+		sestavy_komp.id_komponenty = ".$_GET['id']."
+		AND sestavy_komp.id_sestavy = ".$_SESSION['s']."
 	LIMIT
 		1
 ";

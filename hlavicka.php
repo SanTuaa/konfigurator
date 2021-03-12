@@ -12,8 +12,8 @@ $komponenty = array(
 	"pow" => "Zdroje",
 	"cse" => "Počítačové skříně"
 );
-define(TITLE,'KonfiguraTHOR');
-define(SUBTITLE,'Konfigurátor PC sestav');
+define('TITLE','KonfiguraTHOR');
+define('SUBTITLE','Konfigurátor PC sestav');
 ?>
 
 <!DOCTYPE html>
