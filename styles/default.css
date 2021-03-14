@@ -1,7 +1,6 @@
 *{
     font-size: 1em;
     font-family: Trebuchet MS, sans-serif;
-
     text-decoration: none;
     padding: 0;
     margin: 0;
@@ -111,6 +110,14 @@ h3{
 	font-style: normal;
 }
 
+a{
+	font-style: italic;
+}
+
+a:hover, #jmeno_zbozi:hover{
+	color: #08A045;
+}
+
 #pridat_button, #pridano_button, #header_button, #nedostupny_button{
 	float: right;
 	font-size: 1.5em;
@@ -164,14 +171,6 @@ h3{
 #parametry_zbozi{
 	float: left;
 	margin: 30px;
-}
-
-a{
-	font-style: italic;
-}
-
-a:hover, #jmeno_zbozi:hover{
-	color: #08A045;
 }
 
 input[type=text]{

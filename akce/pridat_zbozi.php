@@ -27,7 +27,7 @@ if(!$search['pocet'] and $id_s):
 	$_SESSION['pridano'] = $id_k;
 	$q = "SELECT komponenty.vyrobce, komponenty.jmeno FROM komponenty WHERE komponenty.id = '$id_k'";
 	$search = mysqli_fetch_assoc(mysqli_query($connection, $q));
-	$_SESSION['msg'] = "Zboží ".$search['vyrobce']. $search['jmeno']." bylo přidáno do sestavy.";
+	$_SESSION['msg'] = "Zboží ".$search['vyrobce']." ". $search['jmeno']." bylo přidáno do sestavy.";
 else:
 	$_SESSION['msg'] = "Zboží bohužel nemohlo být přidáno do sestavy.";
 endif;

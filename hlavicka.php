@@ -8,7 +8,7 @@ $komponenty = array(
 	"mbo" => "Základní desky",
 	"gpu" => "Grafické karty",
 	"ram" => "Paměti RAM",
-	"hdd" => "Pevné disky",
+	"hdd" => "Úložiště",
 	"pow" => "Zdroje",
 	"cse" => "Počítačové skříně"
 );
