@@ -150,7 +150,7 @@ endif;
 					<h2 id="cena"><?php echo $r['cena'] ?>,- Kč</h2><?php
 
 					#ukazatel toho, jestli je zbozi dostupne nebo ne?>
-					<p <?if(!$r['dostupnost']) echo "id=nedostupne"?> >
+					<p <?php if(!$r['dostupnost']) echo "id=nedostupne" ?> >
 						Zboží je <?php echo (!$r['dostupnost']) ? "ne" : "";?>dostupné</p><?php 
 
 					#tlacitko pro okamzite prihozeni zbozi do sestavy?>
