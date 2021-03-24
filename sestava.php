@@ -50,13 +50,25 @@ $q = "
 					<h2 id="cena"><?php echo $k['cena'] ?>,- Kč</h2>
 					<p <?php if(!$k['dostupnost']) echo "id=nedostupne"?>>
 						Zboží je <?echo (!$k['dostupnost']) ? "ne" : "";?>dostupné</p>
+
+					<?php if($_SESSION['owner']): ?>	
 					<a href="./akce/odstranit_ze_sestavy.php?id=<?php echo $k['id']?>">
 						<div id='nedostupny_button'>Odstranit zboží</div>
 					</a>
+				<?php endif; ?>
 				</div>
 			</a></div><?php
 		endwhile;
-		echo "<br><h2>Celkem $suma,- Kč</h2>";
+		echo "<br /><h2>Celkem $suma,- Kč</h2><br /><br />";
+
+		#odkaz pro sdileni
+		$sharelink = $_SERVER['SERVER_NAME'];
+		if($_SERVER["SERVER_ADDR"]=="127.0.0.1") $sharelink .= "/konfigurator";
+		$sharelink .= "/akce/share.php?id=".$id_s;
+
+		echo "<h2>Odkaz pro sdílení:</h2>";
+		echo "<form><input id='share' type='text' onclick='this.select()' readonly value='". $sharelink. "' /></form>";
+
 	endif;?>
 	<div id="empty"></div>
 </div>

@@ -72,7 +72,7 @@ h3{
 #hlavni_obsah{
 	overflow: hidden;
 	padding: 50px;
-	padding-right: 100px;
+	padding-right: 5%;
 	height: 100%;
 }
 
@@ -87,17 +87,19 @@ h3{
 #thumb_ram{
 	height: 128px;
 	width: 128px;
-	margin-right: 20px;
+	margin-right: 1.5em;
 	float: left;
 	background-color: #fff;
+	margin-bottom: 1.5em;
 }
 
 #thumb_img{
-	max-height: 128px; 	
-	max-width: 128px;
+	max-height: 8em; 	
+	max-width: 8em;
 	display: block;
 	vertical-align: middle;
-	margin: auto;	
+	margin: auto;
+
 }
 
 #shop_box_content{
@@ -126,7 +128,7 @@ a:hover, #jmeno_zbozi:hover{
 	background-color: #0B6E4F;
 	color: #fff;
 	padding: 7px;
-	border-radius: 10px;
+	border-radius: 0.7em;
 }
 
 #zbozi_button, #zbozi_nedostupny_button, #zbozi_pridano_button{
@@ -137,8 +139,8 @@ a:hover, #jmeno_zbozi:hover{
 	font-weight: bold;
 	background-color: #0B6E4F;
 	color: #fff;
-	padding: 7px;
-	border-radius: 10px;
+	padding: 0.3em 0.6em;
+	border-radius: 0.7em;
 }
 
 #header_button{
@@ -176,8 +178,12 @@ a:hover, #jmeno_zbozi:hover{
 input[type=text]{
 	font-size: 2em;
 	padding: 10px;
-	margin-top: 50px;
+	margin-top: 3em;
 	border-radius: 15px;
+}
+
+#share{
+	margin-top: 0.5em;
 }
 
 #empty{

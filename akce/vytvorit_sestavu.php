@@ -14,5 +14,6 @@ $q_link = mysqli_query($connection, $q);
 echo mysqli_error($connection);
 $z = mysqli_fetch_assoc($q_link);
 $_SESSION['s'] = $z['id'];
+$_SESSION['owner'] = true;
 header("Location: ../index.php");
 ?>

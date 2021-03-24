@@ -6,34 +6,6 @@ $typ = $_GET["typ"] ? $_GET["typ"] : "cpu";
 $sort = $_GET["sort"];
 $f = $_GET["f"];
 
-#prirazeni filtru k danemu typu zbozi
-$filtr = array();
-if ($typ == "cpu"):
-	$filtr["1151"] = "Socket 1151";
-	$filtr["1200"] = "Socket 1200";
-	$filtr["AM4"] = "Socket AM4";
-elseif ($typ == "chl"):
-	$filtr["tichy"] = "Tichý větrák (pod 20 dB)";
-elseif ($typ == "mbo"):
-	$filtr["1151"] = "Socket 1151";
-	$filtr["1200"] = "Socket 1200";
-	$filtr["AM4"] = "Socket AM4";
-	$filtr["ATX"] = "Formát ATX";
-	$filtr["mATX"] = "Formát mATX";
-elseif ($typ == "gpu"):
-	$filtr["vykon"] = "Výkonná";
-	$filtr["pamet"] = "Přes 4 GB grafické paměti";
-elseif ($typ == "ram"):
-
-elseif ($typ == "hdd"):
-
-elseif ($typ == "pow"):
-
-elseif ($typ == "cse"):
-
-endif;
-
-#asi by to chtelo neco podobneho pro trideni podle parametru, napr. velikosti uloziste
 ?>
 
 <div id="menu">
@@ -71,7 +43,6 @@ endif;
 	#nektere stranky vracejici zpatky na homepage poslou zpravu, co se vlastne na webu stalo
 	$msg = "<p id='msg'>". $_SESSION['msg']. "</p>";
 	echo ($_GET['msg'] == 'true') ? $msg :"";
-
 	#nadpis stranky, ukazuje typ komponent, trideni, filtry
 	$nadpis = "<h2>Výběr komponent: ". $komponenty[$typ];
 	if($sort=="l"):
@@ -114,7 +85,7 @@ endif;
 			$q .= " AND parametry.id_parametr = '19' AND parametry.hodnota_cislo > '1000'";
 		elseif($f == "pamet"):
 			$q .= " AND parametry.id_parametr = '18' AND parametry.hodnota_cislo > '4'";
-		#pokud nemam zadny filtr, nepotrebuji left join komponenty - nova query
+		#pokud nemam zadny filtr, nepotrebuji left join parametry - nova query
 		elseif($f == "dostupne"):
 			$q = "SELECT * FROM komponenty WHERE komponenty.typ_zbozi = '$typ' AND
 				komponenty.dostupnost = '1'";
