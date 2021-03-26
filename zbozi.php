@@ -51,9 +51,9 @@ $z = mysqli_fetch_assoc($q_link);
 			echo "<li>", $p['jmeno'], ": ", $hodnota, "</li>";
 		endwhile;
 		?></ul><br />
-		<h1><?=$z['cena']?>,- Kč</h1>
-		<p <?if(!$z['dostupnost']) echo "id=nedostupne"?> >
-			Zboží je momentálně <?echo (!$z['dostupnost']) ? "ne" : "";?>dostupné</p>
+		<h1><?php echo $z['cena']?>,- Kč</h1>
+		<p <?php if(!$z['dostupnost']) echo "id=nedostupne"?> >
+			Zboží je momentálně <?php echo (!$z['dostupnost']) ? "ne" : "";?>dostupné</p>
 		<a <?php echo $z['dostupnost'] ? "href='./akce/pridat_zbozi.php?id=".$id."'" : "";?> >
 			<?php
 			if(!$z['dostupnost']):
