@@ -6,6 +6,33 @@ $typ = $_GET["typ"] ? $_GET["typ"] : "cpu";
 $sort = $_GET["sort"];
 $f = $_GET["f"];
 
+#prirazeni filtru k danemu typu zbozi
+$filtr = array();
+if ($typ == "cpu"):
+	$filtr["1151"] = "Socket 1151";
+	$filtr["1200"] = "Socket 1200";
+	$filtr["AM4"] = "Socket AM4";
+elseif ($typ == "chl"):
+	$filtr["tichy"] = "Tichý větrák (pod 20 dB)";
+elseif ($typ == "mbo"):
+	$filtr["1151"] = "Socket 1151";
+	$filtr["1200"] = "Socket 1200";
+	$filtr["AM4"] = "Socket AM4";
+	$filtr["ATX"] = "Formát ATX";
+	$filtr["mATX"] = "Formát mATX";
+elseif ($typ == "gpu"):
+	$filtr["vykon"] = "Výkonná";
+	$filtr["pamet"] = "Přes 4 GB grafické paměti";
+elseif ($typ == "ram"):
+
+elseif ($typ == "hdd"):
+	$filtr["hdd"] = "Pevný disk (HDD)";
+	$filtr["ssd"] = "Polovodičový disk (SSD)";
+elseif ($typ == "pow"):
+
+elseif ($typ == "cse"):
+
+endif;
 ?>
 
 <div id="menu">
@@ -17,15 +44,15 @@ $f = $_GET["f"];
 			echo "<li><a href='.?typ=", $kod, "'>", $display, "</a></li>";
 		?>
 	</ul>
-	<br />
+	<div id="empty_smol"></div>
 
-	<h3>Třídění zboží</h3>
+	<h3>Řazení zboží</h3>
 	<ul>
 		<li><a href='<?php echo ".?typ=", $typ, "&f=", $f?>'>Výchozí</a></li>
 		<li><a href='<?php echo ".?typ=", $typ, "&f=", $f?>&sort=l'>Nejlevnější</a></li>
 		<li><a href='<?php echo ".?typ=", $typ, "&f=", $f?>&sort=d'>Nejdražší</a></li>
 	</ul>
-	<br />
+	<div id="empty_smol"></div>
 
 	<h3>Filtrování zboží</h3>
 	<ul>
@@ -36,7 +63,7 @@ $f = $_GET["f"];
 			echo "<li><a href='.?typ=", $typ, "&sort=", $sort, "&f=", $kod, "'>", $display, "</a></li>";
 		
 		#posledni v seznamu... vymazani filtru?>
-		<br /><li><a href='.?typ=<?php echo $typ?>&sort=<?php echo $sort?>'>Zrušit filtr</a></li></ul>	
+		<div id="empty_smol"></div><li><a href='.?typ=<?php echo $typ?>&sort=<?php echo $sort?>'>Zrušit filtr</a></li></ul>	
 </div>
 <div id="hlavni_obsah"><?php
 
@@ -85,6 +112,10 @@ $f = $_GET["f"];
 			$q .= " AND parametry.id_parametr = '19' AND parametry.hodnota_cislo > '1000'";
 		elseif($f == "pamet"):
 			$q .= " AND parametry.id_parametr = '18' AND parametry.hodnota_cislo > '4'";
+		elseif($f == "hdd"):
+			$q .= " AND parametry.id_parametr = '26' AND parametry.hodnota_text = 'Magnetický'";
+		elseif($f == "ssd"):
+			$q .= " AND parametry.id_parametr = '26' AND parametry.hodnota_text = 'SSD'";
 		#pokud nemam zadny filtr, nepotrebuji left join parametry - nova query
 		elseif($f == "dostupne"):
 			$q = "SELECT * FROM komponenty WHERE komponenty.typ_zbozi = '$typ' AND

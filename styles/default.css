@@ -12,10 +12,6 @@ p{
 	font-weight: 100;
 }
 
-body{
-    font-size: 16px;
-}
-
 ul{
 	list-style-type: none;
 	font-size: 1.2em;
@@ -42,20 +38,30 @@ h3{
 }
 
 #hlavicka, #pata{
-	height: 100px;
+	height: 15%;
 	position: relative;
 	margin: 0px;
-	padding: 20px;
-	padding-left: 50px;
+	padding: 1.5rem;
+	padding-left: 2rem;
 	background-color: #0B6E4F;
 	overflow: hidden;
 }
 
-#logo{
+#pata{
+	padding-left: 4rem;
+}
+
+#banner{
 	float: left;
 	padding-right: 30px;
-	max-height: 100px;
-	max-width: 100px;
+	max-height: 8em;
+}
+
+#uzivatel{
+	float: right;
+	max-height: 3rem;
+	margin-right: 2rem;
+	margin-top: 1rem;
 }
 
 #obsah{
@@ -127,8 +133,8 @@ a:hover, #jmeno_zbozi:hover{
 	font-weight: bold;
 	background-color: #0B6E4F;
 	color: #fff;
-	padding: 7px;
-	border-radius: 0.7em;
+	padding: 0.25rem 0.6rem;
+	border-radius: 0.7rem;
 }
 
 #zbozi_button, #zbozi_nedostupny_button, #zbozi_pridano_button{
@@ -139,16 +145,17 @@ a:hover, #jmeno_zbozi:hover{
 	font-weight: bold;
 	background-color: #0B6E4F;
 	color: #fff;
-	padding: 0.3em 0.6em;
-	border-radius: 0.7em;
+	padding: 0.25em 0.6em;
+	border-radius: 0.7rem;
 }
 
 #header_button{
+	float: right;
 	background-color: #fff;
 	color: #0B6E4F;
-	margin-bottom: 30px;
-	margin-right: 70px;
-	margin-top: -20px;
+	font-size: 2em;
+	margin-right: 5rem;
+	margin-top: 1rem;
 }
 
 #nedostupny_button, #zbozi_nedostupny_button{
@@ -172,7 +179,7 @@ a:hover, #jmeno_zbozi:hover{
 
 #parametry_zbozi{
 	float: left;
-	margin: 30px;
+	margin: 2rem;
 }
 
 input[type=text]{
@@ -187,7 +194,12 @@ input[type=text]{
 }
 
 #empty{
-	height: 200px;
+	height: 15rem;
+	width: 100%;
+}
+
+#empty_smol{
+	height: 2rem;
 	width: 100%;
 }
 

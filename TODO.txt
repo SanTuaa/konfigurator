@@ -1,0 +1,6 @@
+dodelat filtry
+opoznamkovat kod, at to neni prasarna
+
+uzivatelske ucty
+filtry s variabilni hodnotou (maly formular kde si uzivatel hodnotu nastavi, nebude fixni)
+darkmode

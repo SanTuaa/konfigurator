@@ -4,7 +4,7 @@ $id_s = $_SESSION['s'] ? $_SESSION['s'] : False;
 $nova = "
 	<h1>Vytvořit novou sestavu</h1>
 	<form method='post' action='./akce/vytvorit_sestavu.php'>
-		<input type='text' name='jmeno' placeholder='Jméno sestavy' /><br />
+		<input type='text' name='jmeno' placeholder='Jméno sestavy' /><div id='empty_smol'></div>
 		<input id='zbozi_button' type='submit' value='Vytvořit' />		
 	</form>
 ";
@@ -59,7 +59,7 @@ $q = "
 				</div>
 			</a></div><?php
 		endwhile;
-		echo "<br /><h2>Celkem $suma,- Kč</h2><br /><br />";
+		echo "<div id='empty_smol'></div><h2>Celkem $suma,- Kč</h2><div id='empty_smol'></div>";
 
 		#odkaz pro sdileni
 		$sharelink = $_SERVER['SERVER_NAME'];
@@ -68,6 +68,11 @@ $q = "
 
 		echo "<h2>Odkaz pro sdílení:</h2>";
 		echo "<form><input id='share' type='text' onclick='this.select()' readonly value='". $sharelink. "' /></form>";
+
+		#smazat ?>
+		<a href="./akce/reset_session.php">
+			<div id='zbozi_nedostupny_button'>Odstranit sestavu</div>
+		</a><?php
 
 	endif;?>
 	<div id="empty"></div>

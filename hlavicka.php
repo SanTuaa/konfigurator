@@ -16,34 +16,6 @@ $komponenty = array(
 define('TITLE','KonfiguraTHOR');
 define('SUBTITLE','Konfigurátor PC sestav');
 
-#prirazeni filtru k danemu typu zbozi
-$filtr = array();
-if ($typ == "cpu"):
-	$filtr["1151"] = "Socket 1151";
-	$filtr["1200"] = "Socket 1200";
-	$filtr["AM4"] = "Socket AM4";
-elseif ($typ == "chl"):
-	$filtr["tichy"] = "Tichý větrák (pod 20 dB)";
-elseif ($typ == "mbo"):
-	$filtr["1151"] = "Socket 1151";
-	$filtr["1200"] = "Socket 1200";
-	$filtr["AM4"] = "Socket AM4";
-	$filtr["ATX"] = "Formát ATX";
-	$filtr["mATX"] = "Formát mATX";
-elseif ($typ == "gpu"):
-	$filtr["vykon"] = "Výkonná";
-	$filtr["pamet"] = "Přes 4 GB grafické paměti";
-elseif ($typ == "ram"):
-
-elseif ($typ == "hdd"):
-
-elseif ($typ == "pow"):
-
-elseif ($typ == "cse"):
-
-endif;
-
-#asi by to chtelo neco podobneho pro trideni podle parametru, napr. velikosti uloziste
 ?>
 
 <!DOCTYPE html>
@@ -57,9 +29,10 @@ endif;
 	<body>
 		<div id="telo">
 			<div id="hlavicka">
-				<a href="."><img id="logo" src="./img/favicon_w.png"></a>
-				<h1 id="bila"><?=TITLE?></h1>
-				<h3 id="bila"><?=SUBTITLE;?></h3>
-				<a href="./sestava.php"><div id="header_button">Moje sestava</div></a>
+				<a href="."><img id="banner" src="./img/banner.png"></a>
+				<div style="overflow: hidden;">	
+					<a href="./sestava.php"><div id="header_button">Moje sestava</div></a>
+					<a href="./user.php"><img id="uzivatel" src="./img/uzivatel.png"></a>
+				</div>
 			</div>
 			<div id="obsah">

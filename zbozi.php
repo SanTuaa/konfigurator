@@ -50,7 +50,7 @@ $z = mysqli_fetch_assoc($q_link);
 			$hodnota = $p['typ'] ? $p['hodnota_text'] : $p['hodnota_cislo'];
 			echo "<li>", $p['jmeno'], ": ", $hodnota, "</li>";
 		endwhile;
-		?></ul><br />
+		?></ul><div id="empty_smol"></div>
 		<h1><?php echo $z['cena']?>,- Kč</h1>
 		<p <?php if(!$z['dostupnost']) echo "id=nedostupne"?> >
 			Zboží je momentálně <?php echo (!$z['dostupnost']) ? "ne" : "";?>dostupné</p>
