@@ -75,7 +75,7 @@ $q = "
 		</a><?php
 
 	endif;?>
-	<div id="empty"></div>
+	<div class="empty"></div>
 </div>
 
 <?php include_once "./patka.php";?>

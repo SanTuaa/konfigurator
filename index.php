@@ -44,7 +44,7 @@ endif;
 			echo "<li><a href='.?typ=", $kod, "'>", $display, "</a></li>";
 		?>
 	</ul>
-	<div id="empty_smol"></div>
+	<div class="empty_smol"></div>
 
 	<h3>Řazení zboží</h3>
 	<ul>
@@ -52,7 +52,7 @@ endif;
 		<li><a href='<?php echo ".?typ=", $typ, "&f=", $f?>&sort=l'>Nejlevnější</a></li>
 		<li><a href='<?php echo ".?typ=", $typ, "&f=", $f?>&sort=d'>Nejdražší</a></li>
 	</ul>
-	<div id="empty_smol"></div>
+	<div class="empty_smol"></div>
 
 	<h3>Filtrování zboží</h3>
 	<ul>
@@ -63,7 +63,7 @@ endif;
 			echo "<li><a href='.?typ=", $typ, "&sort=", $sort, "&f=", $kod, "'>", $display, "</a></li>";
 		
 		#posledni v seznamu... vymazani filtru?>
-		<div id="empty_smol"></div><li><a href='.?typ=<?php echo $typ?>&sort=<?php echo $sort?>'>Zrušit filtr</a></li></ul>	
+		<div class="empty_smol"></div><li><a href='.?typ=<?php echo $typ?>&sort=<?php echo $sort?>'>Zrušit filtr</a></li></ul>	
 </div>
 <div id="hlavni_obsah"><?php
 
@@ -142,18 +142,20 @@ endif;
 			$href = "href='./akce/pridat_zbozi.php?id=".$r['id']."'";
 
 			#cela plocha zbozi by mela slouzit jako odkaz na stranku zbozi
-			?><div id="shop_box"><a href="./zbozi.php?id=<?php echo $r['id']?>"><?php 
+			?><div class="shopbox"><a href="./zbozi.php?id=<?php echo $r['id']?>"><?php 
 
 				#vlozeni obrazku do vlastniho divu za ucelem zarovnani na stred ?>
-				<div id="thumb_ram"><img id="thumb_img" src="./zbozi/<?php echo $r['id']?>.jfif"></div>
+				<div class="shopbox_thumb"><img class="thumb_img" src="./zbozi/<?php echo $r['id']?>.jfif"></div>
 
-				<div id="shop_box_content">
-					<h3 id="jmeno_zbozi"><?php echo $name ?></h3>
-					<h2 id="cena"><?php echo $r['cena'] ?>,- Kč</h2><?php
+				<div class="shopbox_info">
+					<h3 class="jmeno_zbozi"><?php echo $name ?></h3>
+					<h2 class="cena"><?php echo $r['cena'] ?>,- Kč</h2><?php
 
 					#ukazatel toho, jestli je zbozi dostupne nebo ne?>
 					<p <?php if(!$r['dostupnost']) echo "id=nedostupne" ?> >
-						Zboží je <?php echo (!$r['dostupnost']) ? "ne" : "";?>dostupné</p><?php 
+						Zboží je <?php echo (!$r['dostupnost']) ? "ne" : "";?>dostupné</p>
+				</div>
+				<?php 
 
 					#tlacitko pro okamzite prihozeni zbozi do sestavy?>
 					<a <?php echo $r['dostupnost'] ? $href : "";?> >
@@ -169,7 +171,6 @@ endif;
 							echo "<div id='pridat_button'>Přidat do sestavy</div>";
 						endif;
 						?></a>
-				</div>
 			</a></div><?php
 		endwhile;
 	?>

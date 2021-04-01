@@ -1,5 +1,7 @@
 dodelat filtry
 opoznamkovat kod, at to neni prasarna
+CSS overhaul
+thumbnail pro sdileni - Open Graph
 
 uzivatelske ucty
 filtry s variabilni hodnotou (maly formular kde si uzivatel hodnotu nastavi, nebude fixni)

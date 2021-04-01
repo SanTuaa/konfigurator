@@ -1,3 +1,5 @@
+@import url(//db.onlinewebfonts.com/c/971c473a19b6bba1059ba6add6af78d7?family=OCR+A+Extended);
+
 *{
     font-size: 1em;
     font-family: Trebuchet MS, sans-serif;
@@ -7,6 +9,16 @@
     border: none;
     color: #073B3A;
 }
+
+body{
+    background-color: #D8EED3;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+
+/*	===TEXTY===	*/
 
 p{
 	font-weight: 100;
@@ -29,95 +41,6 @@ h3{
 	font-size: 1.5em;
 }
 
-
-#telo{
-    background-color: #D8EED3;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0px;
-}
-
-#hlavicka, #pata{
-	height: 15%;
-	position: relative;
-	margin: 0px;
-	padding: 1.5rem;
-	padding-left: 2rem;
-	background-color: #0B6E4F;
-	overflow: hidden;
-}
-
-#pata{
-	padding-left: 4rem;
-}
-
-#banner{
-	float: left;
-	padding-right: 30px;
-	max-height: 8em;
-}
-
-#uzivatel{
-	float: right;
-	max-height: 3rem;
-	margin-right: 2rem;
-	margin-top: 1rem;
-}
-
-#obsah{
-	overflow: hidden;
-}
-
-#menu{
-	float: left;
-	width: 15%;
-	height: 100%;
-	padding: 50px;
-}
-
-#hlavni_obsah{
-	overflow: hidden;
-	padding: 50px;
-	padding-right: 5%;
-	height: 100%;
-}
-
-#shop_box{
-	overflow: hidden;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	margin: 10px;
-	padding: 10px;
-}
-
-#thumb_ram{
-	height: 128px;
-	width: 128px;
-	margin-right: 1.5em;
-	float: left;
-	background-color: #fff;
-	margin-bottom: 1.5em;
-}
-
-#thumb_img{
-	max-height: 8em; 	
-	max-width: 8em;
-	display: block;
-	vertical-align: middle;
-	margin: auto;
-
-}
-
-#shop_box_content{
-	float: left;
-	width: 80%;
-}
-
-#jmeno_zbozi, #cena{	
-	margin-right: 10px;
-	font-style: normal;
-}
-
 a{
 	font-style: italic;
 }
@@ -126,6 +49,19 @@ a:hover, #jmeno_zbozi:hover{
 	color: #08A045;
 }
 
+/*	===OBECNE CLASS===	*/
+
+.empty{
+	height: 15rem;
+	width: 100%;
+}
+
+.empty_smol{
+	height: 2rem;
+	width: 100%;
+}
+
+/*	===BUTTONY===	*/
 #pridat_button, #pridano_button, #header_button, #nedostupny_button{
 	float: right;
 	font-size: 1.5em;
@@ -156,6 +92,7 @@ a:hover, #jmeno_zbozi:hover{
 	font-size: 2em;
 	margin-right: 5rem;
 	margin-top: 1rem;
+	font-family: OCR A Extended;
 }
 
 #nedostupny_button, #zbozi_nedostupny_button{
@@ -166,6 +103,101 @@ a:hover, #jmeno_zbozi:hover{
 	background-color: #08A045;
 }
 
+/*	===STRUKTURA STRANKY===	*/
+
+#hlavicka, #pata{
+	height: 15%;
+	position: relative;
+	margin: 0px;
+	padding: 1.5rem;
+	padding-left: 2rem;
+	background-color: #0B6E4F;
+	overflow: hidden;
+}
+
+#pata{
+	padding-left: 4rem;
+}
+
+/*vsechno mezi hlavickou a patkou */
+#obsah{
+	overflow: hidden;
+	padding: 3em;
+}
+
+/*cely obsah stranky, v indexu pouze cast bez menu nalevo*/
+#hlavni_obsah{
+	overflow: hidden;
+	padding-right: 5%;
+	height: 100%;
+}
+
+/*	===HLAVICKA===	*/
+#banner{
+	float: left;
+	padding-right: 30px;
+	max-height: 8em;
+}
+
+#uzivatel{
+	float: right;
+	max-height: 3rem;
+	margin-right: 2rem;
+	margin-top: 1rem;
+}
+
+/*	===INDEX===	*/
+
+/*levy uzsi sloupec*/
+#menu{
+	float: left;
+	width: 20%;
+	height: 100%;
+	padding-right: 2em;
+}
+
+#msg{
+	color: #08A045;
+	font-size: 1.2em;
+	font-style: italic;
+	font-weight: bold;
+}
+
+/*jeden kus zbozi*/
+.shopbox{
+	overflow: hidden;
+	border-bottom: 1px solid #0B6E4F;
+	margin: 10px;
+	padding: 10px;
+}
+
+/*ohranici thumbnail do ctverce*/
+.shopbox_thumb{
+	height: 8em;
+	width: 8em;
+	margin: 0 1.5em 1.5em 0;
+	float: left;
+	background-color: #fff;
+	display: flex;
+}
+
+.thumb_img{
+	max-height: 8em; 	
+	max-width: 8em;
+	margin: auto;
+}
+
+/*zbytek shopboxu bez obrazku*/
+.shopbox_info{
+	float: left;
+}
+
+.jmeno_zbozi, .cena{	
+	margin-right: 10px;
+	font-style: normal;
+}
+
+/*	===ZBOZI===	*/
 #foto_zbozi{
 	float: left;
 	max-width: 500px;
@@ -182,6 +214,7 @@ a:hover, #jmeno_zbozi:hover{
 	margin: 2rem;
 }
 
+/*	===SESTAVA===	*/
 input[type=text]{
 	font-size: 2em;
 	padding: 10px;
@@ -193,27 +226,10 @@ input[type=text]{
 	margin-top: 0.5em;
 }
 
-#empty{
-	height: 15rem;
-	width: 100%;
-}
-
-#empty_smol{
-	height: 2rem;
-	width: 100%;
-}
-
 #bila{
 	color: #fff;
 }
 
 #nedostupne{
 	color: #AF2424;
-}
-
-#msg{
-	color: #08A045;
-	font-size: 1.2em;
-	font-style: italic;
-	font-weight: bold;
 }
