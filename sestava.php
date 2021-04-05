@@ -1,11 +1,16 @@
-<?php include_once "./hlavicka.php";
+<?php 
+$og = true;
+include_once "./hlavicka.php";
 
+#nacteni id sestavy
 $id_s = $_SESSION['s'] ? $_SESSION['s'] : False;
+
+#formular pro vytvoreni nove sestavy, pokud zadna neni nactena
 $nova = "
 	<h1>Vytvořit novou sestavu</h1>
 	<form method='post' action='./akce/vytvorit_sestavu.php'>
-		<input type='text' name='jmeno' placeholder='Jméno sestavy' /><div id='empty_smol'></div>
-		<input id='zbozi_button' type='submit' value='Vytvořit' />		
+		<input type='text' name='jmeno' placeholder='Jméno sestavy' /><div class='empty_smol'></div>
+		<input class='btn large left' type='submit' value='Vytvořit' />		
 	</form>
 ";
 $q = "
@@ -18,16 +23,25 @@ $q = "
 ";
 ?>
 <div id="hlavni_obsah">
-	<?php if(!$id_s):
+	<?php
+	$msg = "<p id='msg'>". $_SESSION['msg']. "</p>";
+	echo ($_GET['msg'] == 'true') ? $msg :"";
+
+	#formular pro vytvoreni nove sestavy, pokud zadna neni nactena
+	if(!$id_s):
 		echo $nova;
+
 	else:
+		#nacteni sestavy
 		$q_link = mysqli_query($connection, $q);
 		echo mysqli_error($connection);
 		$sestava = mysqli_fetch_assoc($q_link);
-		echo "<h1>".$sestava['jmeno']."</h1>";
-		echo "<p>ID sestavy: ".$_SESSION['s']."</p>";
 
-		$id_s = $_SESSION['s'];
+		#"hlavicka" stranky
+		echo "<h1>".$sestava['jmeno']."</h1>";
+		echo "<p>ID sestavy: ".$id_s."</p>";
+
+		#hledame komponenty v dane sestave
 		$q = "
 		SELECT
 			komponenty.id, komponenty.vyrobce, komponenty.jmeno, komponenty.cena, komponenty.dostupnost
@@ -40,38 +54,51 @@ $q = "
 		";
 		$q_link = mysqli_query($connection, $q);
 		echo mysqli_error($connection);
-		$suma = 0;
-		while($k = mysqli_fetch_assoc($q_link)):
-			$suma += $k['cena'];
-			?><div id="shop_box"><a href="./zbozi.php?id=<?php echo $k['id']?>">
-				<div id="thumb_ram"><img id="thumb_img" src="./zbozi/<?php echo $k['id']?>.jfif"></div>
-				<div id="shop_box_content">
-					<h3 id="jmeno_zbozi"><?php echo $name ?></h3>
-					<h2 id="cena"><?php echo $k['cena'] ?>,- Kč</h2>
-					<p <?php if(!$k['dostupnost']) echo "id=nedostupne"?>>
-						Zboží je <?echo (!$k['dostupnost']) ? "ne" : "";?>dostupné</p>
 
-					<?php if($_SESSION['owner']): ?>	
+		#pocitadlo celkove ceny
+		$suma = 0;
+
+		#hlavni smycka vypisu zbozi
+		while($k = mysqli_fetch_assoc($q_link)):
+
+			$suma += $k['cena'];
+			$name = $k['vyrobce'] . " " . $k['jmeno'];
+
+			#shopbox, stejne jako v indexu ale bez tlacitka pridat (pochopitelne)?>
+			<div class="shopbox"><a href="./zbozi.php?id=<?php echo $k['id']?>">
+				<div class="shopbox_thumb"><img class="thumb_img" src="./zbozi/<?php echo $k['id']?>.jfif"></div>
+
+				<div class="shopbox_info">
+					<h3><?php echo $name ?></h3>
+					<h2><?php echo $k['cena'] ?>,- Kč</h2>
+					<p <?php if(!$k['dostupnost']) echo "class='red'"?>>
+						Zboží je <?php echo (!$k['dostupnost']) ? "ne" : "";?>dostupné</p>
+				</div><?php 
+
+				#pro tlacitko Odstranit musime overit "vlastnika sestavy"
+				if($_SESSION['owner']): ?>
 					<a href="./akce/odstranit_ze_sestavy.php?id=<?php echo $k['id']?>">
-						<div id='nedostupny_button'>Odstranit zboží</div>
-					</a>
-				<?php endif; ?>
-				</div>
+						<div class="btn red">Odstranit zboží</div>
+					</a><?php 
+				endif; ?>
+
 			</a></div><?php
 		endwhile;
-		echo "<div id='empty_smol'></div><h2>Celkem $suma,- Kč</h2><div id='empty_smol'></div>";
+
+		#vypis celkove ceny
+		echo "<h2 id='suma'>Celkem ".$suma.",- Kč</h2>";
 
 		#odkaz pro sdileni
-		$sharelink = $_SERVER['SERVER_NAME'];
+		$sharelink = "http://" . $_SERVER['SERVER_NAME'];
 		if($_SERVER["SERVER_ADDR"]=="127.0.0.1") $sharelink .= "/konfigurator";
 		$sharelink .= "/akce/share.php?id=".$id_s;
 
 		echo "<h2>Odkaz pro sdílení:</h2>";
 		echo "<form><input id='share' type='text' onclick='this.select()' readonly value='". $sharelink. "' /></form>";
 
-		#smazat ?>
+		#smazat session (sestavu)?>
 		<a href="./akce/reset_session.php">
-			<div id='zbozi_nedostupny_button'>Odstranit sestavu</div>
+			<div class='btn large left_red'>Odstranit sestavu</div>
 		</a><?php
 
 	endif;?>

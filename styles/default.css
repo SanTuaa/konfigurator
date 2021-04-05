@@ -61,45 +61,45 @@ a:hover, #jmeno_zbozi:hover{
 	width: 100%;
 }
 
+.white{
+	color: #fff;
+}
+
+.red{
+	color: #AF2424;
+}
+
 /*	===BUTTONY===	*/
-#pridat_button, #pridano_button, #header_button, #nedostupny_button{
-	float: right;
+.btn{
 	font-size: 1.5em;
 	font-style: normal;
 	font-weight: bold;
-	background-color: #0B6E4F;
-	color: #fff;
 	padding: 0.25rem 0.6rem;
 	border-radius: 0.7rem;
-}
-
-#zbozi_button, #zbozi_nedostupny_button, #zbozi_pridano_button{
-	float: left;
-	margin-top: 20px;
-	font-size: 1.5em;
-	font-style: normal;
-	font-weight: bold;
-	background-color: #0B6E4F;
-	color: #fff;
-	padding: 0.25em 0.6em;
-	border-radius: 0.7rem;
-}
-
-#header_button{
-	float: right;
-	background-color: #fff;
-	color: #0B6E4F;
-	font-size: 2em;
-	margin-right: 5rem;
 	margin-top: 1rem;
-	font-family: OCR A Extended;
+
+	color: #fff;
+	background-color: #0B6E4F;
+
+	float: right;
 }
 
-#nedostupny_button, #zbozi_nedostupny_button{
+.btn.left, .btn.left_red, .btn.left_light{
+	float: left;
+}
+
+.btn.large, .btn.header{
+	font-size: 2em;
+	margin-right: 2rem;
+	margin-top: 1rem;
+	padding: 0.5rem 1rem;	
+}
+
+.btn.red, .btn.left_red{
 	background-color: #AF2424;
 }
 
-#pridano_button, #zbozi_pridano_button{
+.btn.light, .btn.left_light{
 	background-color: #08A045;
 }
 
@@ -116,7 +116,11 @@ a:hover, #jmeno_zbozi:hover{
 }
 
 #pata{
-	padding-left: 4rem;
+	padding-left: 4rem;	
+}
+
+#pata *{
+	color: #fff;
 }
 
 /*vsechno mezi hlavickou a patkou */
@@ -144,6 +148,13 @@ a:hover, #jmeno_zbozi:hover{
 	max-height: 3rem;
 	margin-right: 2rem;
 	margin-top: 1rem;
+}
+
+.btn.header{
+	float: right;
+	background-color: #fff;
+	color: #0B6E4F;
+	font-family: OCR A Extended;
 }
 
 /*	===INDEX===	*/
@@ -192,24 +203,23 @@ a:hover, #jmeno_zbozi:hover{
 	float: left;
 }
 
-.jmeno_zbozi, .cena{	
+/*jmeno zbozi, cena*/
+.shopbox_info h3, .shopbox_info h2{	
 	margin-right: 10px;
 	font-style: normal;
 }
 
 /*	===ZBOZI===	*/
-#foto_zbozi{
+.foto_zbozi{
 	float: left;
 	max-width: 500px;
 	max-height: auto;
 	margin: 20px;
 	margin-left: 0px;
-	border-style: solid;
-	border-color: #fff;
-	border-width: 30px;
+	border: 2rem solid #fff;
 }
 
-#parametry_zbozi{
+.parametry_zbozi{
 	float: left;
 	margin: 2rem;
 }
@@ -217,19 +227,15 @@ a:hover, #jmeno_zbozi:hover{
 /*	===SESTAVA===	*/
 input[type=text]{
 	font-size: 2em;
-	padding: 10px;
-	margin-top: 3em;
-	border-radius: 15px;
+	padding: 0.6rem;
+	margin-top: 3rem;
+	border-radius: 1rem;
+}
+
+#suma{
+	margin: 3rem 0;
 }
 
 #share{
-	margin-top: 0.5em;
-}
-
-#bila{
-	color: #fff;
-}
-
-#nedostupne{
-	color: #AF2424;
+	margin: 1rem 0 3rem;
 }

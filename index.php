@@ -1,4 +1,5 @@
 <?php
+$_SESSION["og"] = "sestava";
 include_once "./hlavicka.php";
 
 #import hodnot z metody GET
@@ -24,14 +25,15 @@ elseif ($typ == "gpu"):
 	$filtr["vykon"] = "Výkonná";
 	$filtr["pamet"] = "Přes 4 GB grafické paměti";
 elseif ($typ == "ram"):
-
+	#neni podle ceho filtrovat
 elseif ($typ == "hdd"):
 	$filtr["hdd"] = "Pevný disk (HDD)";
 	$filtr["ssd"] = "Polovodičový disk (SSD)";
+	$filtr["TB"] = "Úložiště nad 1 TB";
 elseif ($typ == "pow"):
-
+	#neni podle ceho filtrovat
 elseif ($typ == "cse"):
-
+	#neni podle ceho filtrovat
 endif;
 ?>
 
@@ -70,6 +72,7 @@ endif;
 	#nektere stranky vracejici zpatky na homepage poslou zpravu, co se vlastne na webu stalo
 	$msg = "<p id='msg'>". $_SESSION['msg']. "</p>";
 	echo ($_GET['msg'] == 'true') ? $msg :"";
+
 	#nadpis stranky, ukazuje typ komponent, trideni, filtry
 	$nadpis = "<h2>Výběr komponent: ". $komponenty[$typ];
 	if($sort=="l"):
@@ -116,6 +119,8 @@ endif;
 			$q .= " AND parametry.id_parametr = '26' AND parametry.hodnota_text = 'Magnetický'";
 		elseif($f == "ssd"):
 			$q .= " AND parametry.id_parametr = '26' AND parametry.hodnota_text = 'SSD'";
+		elseif($f == "TB"):
+			$q .= " AND parametry.id_parametr = '24' AND parametry.hodnota_cislo >= '1000'";
 		#pokud nemam zadny filtr, nepotrebuji left join parametry - nova query
 		elseif($f == "dostupne"):
 			$q = "SELECT * FROM komponenty WHERE komponenty.typ_zbozi = '$typ' AND
@@ -148,11 +153,11 @@ endif;
 				<div class="shopbox_thumb"><img class="thumb_img" src="./zbozi/<?php echo $r['id']?>.jfif"></div>
 
 				<div class="shopbox_info">
-					<h3 class="jmeno_zbozi"><?php echo $name ?></h3>
-					<h2 class="cena"><?php echo $r['cena'] ?>,- Kč</h2><?php
+					<h3><?php echo $name ?></h3>
+					<h2><?php echo $r['cena'] ?>,- Kč</h2><?php
 
 					#ukazatel toho, jestli je zbozi dostupne nebo ne?>
-					<p <?php if(!$r['dostupnost']) echo "id=nedostupne" ?> >
+					<p <?php if(!$r['dostupnost']) echo "class='red'" ?> >
 						Zboží je <?php echo (!$r['dostupnost']) ? "ne" : "";?>dostupné</p>
 				</div>
 				<?php 
@@ -161,14 +166,14 @@ endif;
 					<a <?php echo $r['dostupnost'] ? $href : "";?> >
 						<?php
 						if(!$r['dostupnost']):
-							echo "<div id='nedostupny_button'>Nedostupné zboží</div>";
+							echo "<div class='btn red'>Nedostupné zboží</div>";
 
 						#toto se aktivuje, pokud se jedna o posledni pridane zbozi
 						elseif($r['id'] == $_SESSION['pridano']):
-							echo "<div id='pridano_button'>Zboží bylo přidáno</div>";
+							echo "<div class='btn light'>Zboží bylo přidáno</div>";
 
 						else:
-							echo "<div id='pridat_button'>Přidat do sestavy</div>";
+							echo "<div class='btn'>Přidat do sestavy</div>";
 						endif;
 						?></a>
 			</a></div><?php
