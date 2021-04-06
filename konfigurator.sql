@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Počítač: localhost
--- Vygenerováno: Středa 10. března 2021, 19:48
+-- Vygenerováno: Úterý 06. dubna 2021, 22:00
 -- Verze MySQL: 5.0.51
 -- Verze PHP: 5.2.6
 
@@ -306,13 +306,13 @@ INSERT INTO `parametry` (`id`, `id_komponent`, `id_parametr`, `hodnota_text`, `h
 (193, 39, 29, NULL, 1400),
 (194, 40, 30, NULL, 600),
 (195, 40, 31, '80 Plus Bronze', NULL),
-(196, 41, 31, NULL, 650),
+(196, 41, 30, NULL, 650),
 (197, 41, 31, '80 Plus Gold', NULL),
-(198, 43, 31, NULL, 800),
+(198, 43, 30, NULL, 800),
 (199, 43, 31, '80 Plus Bronze', NULL),
-(200, 44, 31, NULL, 1000),
+(200, 44, 30, NULL, 1000),
 (201, 44, 31, '80 Plus Platinum', NULL),
-(202, 42, 31, NULL, 350),
+(202, 42, 30, NULL, 350),
 (203, 42, 31, '80 Minus', NULL),
 (204, 45, 32, NULL, 7),
 (205, 45, 33, NULL, 2),
@@ -397,7 +397,7 @@ INSERT INTO `parametry_jmena` (`id`, `parametr`, `typ`) VALUES
 CREATE TABLE IF NOT EXISTS `sestavy` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
   `uzivatel` mediumint(8) unsigned default NULL,
-  `jmeno` varchar(20) collate utf8_czech_ci NOT NULL,
+  `jmeno` varchar(64) collate utf8_czech_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=2 ;
 
@@ -406,7 +406,7 @@ CREATE TABLE IF NOT EXISTS `sestavy` (
 --
 
 INSERT INTO `sestavy` (`id`, `uzivatel`, `jmeno`) VALUES
-(1, NULL, 'První sestava');
+(1, 1, 'Simonova sestava');
 
 -- --------------------------------------------------------
 
@@ -420,21 +420,18 @@ CREATE TABLE IF NOT EXISTS `sestavy_komp` (
   `id_sestavy` mediumint(8) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `id_komponenty` (`id_komponenty`,`id_sestavy`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=64 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=6 ;
 
 --
 -- Vypisuji data pro tabulku `sestavy_komp`
 --
 
 INSERT INTO `sestavy_komp` (`id`, `id_komponenty`, `id_sestavy`) VALUES
-(56, 2, 1),
-(57, 10, 1),
-(58, 16, 1),
-(59, 30, 1),
-(60, 37, 1),
-(61, 33, 1),
-(62, 43, 1),
-(63, 45, 1);
+(1, 3, 1),
+(2, 8, 1),
+(3, 16, 1),
+(4, 26, 1),
+(5, 30, 1);
 
 -- --------------------------------------------------------
 
@@ -444,13 +441,14 @@ INSERT INTO `sestavy_komp` (`id`, `id_komponenty`, `id_sestavy`) VALUES
 
 CREATE TABLE IF NOT EXISTS `uzivatele` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
-  `nick` varchar(20) collate utf8_czech_ci NOT NULL,
-  `heslo` varchar(20) collate utf8_czech_ci NOT NULL,
-  `email` varchar(50) collate utf8_czech_ci default NULL,
+  `nick` varchar(64) collate utf8_czech_ci NOT NULL,
+  `heslo` varchar(64) collate utf8_czech_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=2 ;
 
 --
 -- Vypisuji data pro tabulku `uzivatele`
 --
 
+INSERT INTO `uzivatele` (`id`, `nick`, `heslo`) VALUES
+(1, 'Simon', 'ab42ca8854657392a64ed791c65b369a');
