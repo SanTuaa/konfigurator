@@ -44,6 +44,22 @@ if($continue):
 	#id zapiseme do sessiony
 	$_SESSION['u'] = $z['id'];
 
+	#pokud mam otevrenou sestavu a jsem vlastnik, zapisu se do db jako autor
+	$id_s = $_SESSION['s'];
+	$id_u = $z['id'];
+	if($_SESSION['s'] and $_SESSION['owner']):
+		$q = "
+		UPDATE 
+			sestavy
+		SET
+			uzivatel = '$id_u'
+		WHERE
+			sestavy.id = '$id_s';
+		";
+		$q_link = mysqli_query($connection, $q);
+		echo mysqli_error($connection);
+	endif;
+
 	#uzivatel je navracen
 	header("Location: ../user.php");
 else:

@@ -65,20 +65,22 @@ if($continue):
 	$_SESSION['u'] = $z['id'];
 
 	#pokud mam otevrenou sestavu a jsem vlastnik, zapisu se do db jako autor
-	#NEDODELANE NENECHAVEJ TO TAKTO NEBUDE TO FUNGOVAT
+	$id_s = $_SESSION['s'];
+	$id_u = $z['id'];
 	if($_SESSION['s'] and $_SESSION['owner']):
 		$q = "
-	INSERT INTO 
-		sestavy(uzivatel)
-	WHERE
-
-	VALUES
-		('$z["id"]');
-	";
-	#$q_link = mysqli_query($connection, $q);
-	echo mysqli_error($connection);
+		UPDATE 
+			sestavy
+		SET
+			uzivatel = '$id_u'
+		WHERE
+			sestavy.id = '$id_s';
+		";
+		$q_link = mysqli_query($connection, $q);
+		echo mysqli_error($connection);
 	endif;	
 
+	#uzivatel je presmerovan na stranku uzivatele
 	header("Location: ../user.php");
 
 else:
