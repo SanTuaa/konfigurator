@@ -103,6 +103,21 @@ a:hover, #jmeno_zbozi:hover{
 	background-color: #08A045;
 }
 
+/*	===FORMULARE===	*/
+
+/*z nejakeho duvodu to neprepise button, ktery slouzi jako input*/
+input{
+	display: block;
+	font-size: 2em;
+	padding: 0.6rem;
+	margin-top: 3rem;
+	border-radius: 1rem;
+}
+
+input[type=password]{
+	margin-top: 1rem;
+}
+
 /*	===STRUKTURA STRANKY===	*/
 
 #hlavicka, #pata{
@@ -129,7 +144,7 @@ a:hover, #jmeno_zbozi:hover{
 	padding: 3em;
 }
 
-/*cely obsah stranky, v indexu pouze cast bez menu nalevo*/
+/*cely obsah stranky, nekde vsak pouze cast */
 #hlavni_obsah{
 	overflow: hidden;
 	padding-right: 5%;
@@ -154,7 +169,7 @@ a:hover, #jmeno_zbozi:hover{
 	float: right;
 	background-color: #fff;
 	color: #0B6E4F;
-	font-family: OCR A Extended;
+	font-family: OCR A Extended, Courier New, monospace;
 }
 
 /*	===INDEX===	*/
@@ -225,17 +240,30 @@ a:hover, #jmeno_zbozi:hover{
 }
 
 /*	===SESTAVA===	*/
-input[type=text]{
-	font-size: 2em;
-	padding: 0.6rem;
-	margin-top: 3rem;
-	border-radius: 1rem;
-}
-
 #suma{
 	margin: 3rem 0;
 }
 
 #share{
 	margin: 1rem 0 3rem;
+}
+
+/*	===USER, LOGIN===	*/
+#registrace{
+	float: right;
+	width: 40%;
+	height: 100%;
+	padding-left: 2em;
+}
+
+#reg_form input{
+	display: block;
+	font-size: 1.5em;
+	padding: 0.6rem;
+	margin-top: 3rem;
+	border-radius: 1rem;
+}
+
+#reg_form input[type=password]{
+	margin-top: 1rem;
 }

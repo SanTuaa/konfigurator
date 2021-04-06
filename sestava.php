@@ -1,18 +1,14 @@
-<?php 
+<?php
+#stranka se sestavou uzivatele, pripadne nasdilenou sestavou
+#pokud nema sestavu, je presmerovan na formular pro vytvoreni nove
+
+#info pro hlavicku, ze ma nacist jiny opengraph 
 $og = true;
 include_once "./hlavicka.php";
 
 #nacteni id sestavy
-$id_s = $_SESSION['s'] ? $_SESSION['s'] : False;
+$id_s = $_SESSION['s'] ? $_SESSION['s'] : false;
 
-#formular pro vytvoreni nove sestavy, pokud zadna neni nactena
-$nova = "
-	<h1>Vytvořit novou sestavu</h1>
-	<form method='post' action='./akce/vytvorit_sestavu.php'>
-		<input type='text' name='jmeno' placeholder='Jméno sestavy' /><div class='empty_smol'></div>
-		<input class='btn large left' type='submit' value='Vytvořit' />		
-	</form>
-";
 $q = "
 	SELECT
 		*
@@ -29,17 +25,28 @@ $q = "
 
 	#formular pro vytvoreni nove sestavy, pokud zadna neni nactena
 	if(!$id_s):
-		echo $nova;
+		include_once "./forms/nova_sestava.php";
 
 	else:
 		#nacteni sestavy
 		$q_link = mysqli_query($connection, $q);
 		echo mysqli_error($connection);
 		$sestava = mysqli_fetch_assoc($q_link);
+		$id_autora = $sestava['uzivatel'];
 
 		#"hlavicka" stranky
 		echo "<h1>".$sestava['jmeno']."</h1>";
 		echo "<p>ID sestavy: ".$id_s."</p>";
+
+		#najdeme si autora sestavy, pokud ma ucet, a napiseme jeho jmeno
+		if($id_autora):
+			$q = "SELECT nick FROM uzivatele WHERE uzivatele.id = '$id_autora'";
+			$q_link = mysqli_query($connection, $q);
+			echo mysqli_error($connection);
+			$nick = mysqli_fetch_assoc($q_link);
+			$nick = $nick['nick'];
+			echo "<p>Autorem sestavy je ".$nick."</p>";
+		endif;
 
 		#hledame komponenty v dane sestave
 		$q = "
@@ -97,7 +104,7 @@ $q = "
 		echo "<form><input id='share' type='text' onclick='this.select()' readonly value='". $sharelink. "' /></form>";
 
 		#smazat session (sestavu)?>
-		<a href="./akce/reset_session.php">
+		<a href="./akce/reset_sestava.php">
 			<div class='btn large left_red'>Odstranit sestavu</div>
 		</a><?php
 
