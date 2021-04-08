@@ -31,6 +31,7 @@ ul{
 
 h1{
 	font-size: 2.5em;
+	margin-bottom: 1em;
 }
 
 h2{
@@ -43,9 +44,10 @@ h3{
 
 a{
 	font-style: italic;
+	transition: color 0.2s;
 }
 
-a:hover, #jmeno_zbozi:hover{
+a:hover{
 	color: #08A045;
 }
 
@@ -80,8 +82,13 @@ a:hover, #jmeno_zbozi:hover{
 
 	color: #fff;
 	background-color: #0B6E4F;
+	transition: color 0.5s, background-color 0.5s;
 
 	float: right;
+}
+
+.btn:hover{
+	background-color: #08A045;
 }
 
 .btn.left, .btn.left_red, .btn.left_light{
@@ -99,8 +106,17 @@ a:hover, #jmeno_zbozi:hover{
 	background-color: #AF2424;
 }
 
+.btn.red:hover, .btn.left_red:hover{
+	color: #F5CCCC;
+	background-color: #661414;
+}
+
 .btn.light, .btn.left_light{
 	background-color: #08A045;
+}
+
+.btn.light:hover, .btn.left_light:hover{
+	background-color: #0AC254;
 }
 
 /*	===FORMULARE===	*/
@@ -136,6 +152,11 @@ input[type=password]{
 
 #pata *{
 	color: #fff;
+	transition: color 0.2s;
+}
+
+#pata a:hover{
+	color: #0AC254;
 }
 
 /*vsechno mezi hlavickou a patkou */
@@ -266,4 +287,12 @@ input[type=password]{
 
 #reg_form input[type=password]{
 	margin-top: 1rem;
+}
+
+#user_welcome{
+	margin-bottom: 3em;
+}
+
+.user_build{
+	font-size: 1.5em;
 }

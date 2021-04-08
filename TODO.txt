@@ -1,6 +1,3 @@
-uzivatelske ucty
-hover buttonu
-
 filtry s variabilni hodnotou (maly formular kde si uzivatel hodnotu nastavi, nebude fixni)
 lepsi vzhled pro telefon
 darkmode

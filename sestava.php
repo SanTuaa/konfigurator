@@ -103,9 +103,9 @@ $q = "
 		echo "<h2>Odkaz pro sdílení:</h2>";
 		echo "<form><input id='share' type='text' onclick='this.select()' readonly value='". $sharelink. "' /></form>";
 
-		#smazat session (sestavu)?>
+		#odnacist sestavu?>
 		<a href="./akce/reset_sestava.php">
-			<div class='btn large left_red'>Odstranit sestavu</div>
+			<div class='btn large left_red'>Chci jinou sestavu</div>
 		</a><?php
 
 	endif;?>

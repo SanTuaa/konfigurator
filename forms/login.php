@@ -16,7 +16,7 @@
 		<input type='text' name='nick' placeholder='Uživatelské jméno' value='<?php echo $nick_reg ?>'/>
 		<input type='password' name='pw' placeholder='Heslo' />
 		<input type='password' name='pw2' placeholder='Heslo znovu' />
-		<input class='btn large left' type='submit' value='Přihlásit se' />		
+		<input class='btn large left' type='submit' value='Registrovat' />		
 	</form>
 </div>
 <div id="hlavni_obsah"><?php
@@ -33,6 +33,6 @@
 	<form method='post' action='./akce/login.php'>
 		<input type='text' name='nick' placeholder='Uživatelské jméno' value='<?php echo $nick ?>' />
 		<input type='password' name='pw' placeholder='Heslo' />
-		<input class='btn large left' type='submit' value='Přihlásit se' />		
+		<input class='btn large left' type='submit' value='Přihlásit' />		
 	</form>
 </div>
