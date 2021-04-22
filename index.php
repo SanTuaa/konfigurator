@@ -58,7 +58,7 @@ endif;
 
 	<h3>Filtrování zboží</h3>
 	<ul>
-		<li><a href='<?php echo ".?typ=".$typ."&sort=".$sort?>&f=dostupne'>Dostupné zboží</a></li><?php
+		<li><a href='<?php echo ".?typ=".$typ."&sort=".$sort?>&f=dostupne'>Dostupné</a></li><?php
 
 		#tady bude odlisny filtr pro kazdy typ zbozi
 		foreach($filtr as $kod => $display)
@@ -166,14 +166,14 @@ endif;
 					<a <?php echo $r['dostupnost'] ? $href : "";?> >
 						<?php
 						if(!$r['dostupnost']):
-							echo "<div class='btn red'>Nedostupné zboží</div>";
+							echo "<div class='btn red'>NEDOSTUPNÉ</div>";
 
 						#toto se aktivuje, pokud se jedna o posledni pridane zbozi
 						elseif($r['id'] == $_SESSION['pridano']):
-							echo "<div class='btn light'>Zboží bylo přidáno</div>";
+							echo "<div class='btn light'>PŘIDÁNO</div>";
 
 						else:
-							echo "<div class='btn'>Přidat do sestavy</div>";
+							echo "<div class='btn'>PŘIDAT</div>";
 						endif;
 						?></a>
 			</a></div><?php

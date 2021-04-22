@@ -61,16 +61,16 @@ $z = mysqli_fetch_assoc($q_link);
 		<h1><?php echo $z['cena']?>,- Kč</h1>
 
 		<p <?php if(!$z['dostupnost']) echo "class='red'"?>
-			>Zboží je momentálně <?php echo (!$z['dostupnost']) ? "ne" : "";?>dostupné</p>
+			>Zboží je <?php echo (!$z['dostupnost']) ? "ne" : "";?>dostupné</p>
 
 		<a <?php echo $z['dostupnost'] ? "href='./akce/pridat_zbozi.php?id=".$id."'" : "";?> >
 			<?php
 			if(!$z['dostupnost']):
-				echo "<div class='btn left_red'>Nedostupné zboží</div>";
+				echo "<div class='btn left_red'>NEDOSTUPNÉ</div>";
 			elseif($id == $_SESSION['pridano']):
-				echo "<div class='btn left_light'>Zboží bylo přidáno</div>";
+				echo "<div class='btn left_light'>PŘIDÁNO</div>";
 			else:
-				echo "<div class='btn left'>Přidat do sestavy</div>";
+				echo "<div class='btn left'>PŘIDAT</div>";
 			endif;
 		?></a>
 	</div>

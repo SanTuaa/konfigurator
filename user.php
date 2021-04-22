@@ -46,7 +46,7 @@ $nick = $nick['nick'];
 
 	#odhlasit se ?>
 	<a href="./akce/logout.php">
-		<div class='btn large left_red'>Odhlásit se</div>
+		<div class='btn large left_red'>ODHLÁSIT SE</div>
 	</a>
 	<div class="empty"></div>
 </div>

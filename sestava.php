@@ -85,7 +85,7 @@ $q = "
 				#pro tlacitko Odstranit musime overit "vlastnika sestavy"
 				if($_SESSION['owner']): ?>
 					<a href="./akce/odstranit_ze_sestavy.php?id=<?php echo $k['id']?>">
-						<div class="btn red">Odstranit zboží</div>
+						<div class="btn red">ODSTRANIT</div>
 					</a><?php 
 				endif; ?>
 
@@ -105,7 +105,7 @@ $q = "
 
 		#odnacist sestavu?>
 		<a href="./akce/reset_sestava.php">
-			<div class='btn large left_red'>Chci jinou sestavu</div>
+			<div class='btn large left_red'>CHCI JINOU SESTAVU</div>
 		</a><?php
 
 	endif;?>

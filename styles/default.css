@@ -79,6 +79,7 @@ a:hover{
 	padding: 0.25rem 0.6rem;
 	border-radius: 0.7rem;
 	margin-top: 1rem;
+	letter-spacing: 0.05em;
 
 	color: #fff;
 	background-color: #0B6E4F;
@@ -137,7 +138,7 @@ input[type=password]{
 /*	===STRUKTURA STRANKY===	*/
 
 #hlavicka, #pata{
-	height: 15%;
+	max-height: 25vh;
 	position: relative;
 	margin: 0px;
 	padding: 1.5rem;
@@ -147,7 +148,8 @@ input[type=password]{
 }
 
 #pata{
-	padding-left: 4rem;	
+	padding-left: 4rem;
+	max-height: 100vh;	
 }
 
 #pata *{
@@ -166,7 +168,7 @@ input[type=password]{
 }
 
 /*cely obsah stranky, nekde vsak pouze cast */
-#hlavni_obsah{
+#hlavni_obsah, #login{
 	overflow: hidden;
 	padding-right: 5%;
 	height: 100%;
@@ -175,19 +177,29 @@ input[type=password]{
 /*	===HLAVICKA===	*/
 #banner{
 	float: left;
-	padding-right: 30px;
-	max-height: 8em;
+
+	max-height: 15vh;
+	max-width: 70vw;
+}
+
+#sestava{
+	float: right;
+	max-height: 3rem;
+	margin-right: 1rem;
+	margin-top: 1rem;
+	display: none;
 }
 
 #uzivatel{
 	float: right;
 	max-height: 3rem;
-	margin-right: 2rem;
+	margin-right: 1rem;
 	margin-top: 1rem;
 }
 
 .btn.header{
 	float: right;
+	margin-right: 1rem;
 	background-color: #fff;
 	color: #0B6E4F;
 	font-family: OCR A Extended, Courier New, monospace;
@@ -248,9 +260,9 @@ input[type=password]{
 /*	===ZBOZI===	*/
 .foto_zbozi{
 	float: left;
-	max-width: 500px;
+	max-width: 30rem;
 	max-height: auto;
-	margin: 20px;
+	margin: 5vw;
 	margin-left: 0px;
 	border: 2rem solid #fff;
 }
@@ -295,4 +307,61 @@ input[type=password]{
 
 .user_build{
 	font-size: 1.5em;
+}
+
+/*	===VZHLED PRO TELEFONY===	*/
+@media only screen and (max-width: 1000px) {
+	/*vymeni text v hlavicce za ikonu*/
+	#sestava{
+		display: block;
+	}
+
+	.btn.header{
+		display: none;
+	}	
+
+}
+
+@media only screen and (max-width: 620px) {
+	body{
+		font-size: 20px;
+	}
+
+	#hlavicka{
+		padding: 1rem 0 1rem 1rem;
+	}
+
+	#obsah{
+		padding: 3vh;
+	}
+
+	#menu{
+		float: none;
+		width: 100%;
+		margin-bottom: 2rem;
+	}
+	#hlavni_obsah{
+		padding: 0;
+	}
+
+	.foto_zbozi{
+	max-width: 80vw;
+	margin: 1rem;
+	margin-left: 0px;
+	border: 5vw solid #fff;
+	}
+
+	#registrace{
+		padding: 0 0 5rem;
+		float: none;
+		width: 100%;
+	}
+
+	#login{
+		margin-top: 3rem;
+	}
+
+	input, #reg_form input{
+		font-size: 1.2em;
+	}
 }

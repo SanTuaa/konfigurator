@@ -16,10 +16,10 @@
 		<input type='text' name='nick' placeholder='Uživatelské jméno' value='<?php echo $nick_reg ?>'/>
 		<input type='password' name='pw' placeholder='Heslo' />
 		<input type='password' name='pw2' placeholder='Heslo znovu' />
-		<input class='btn large left' type='submit' value='Registrovat' />		
+		<input class='btn large left' type='submit' value='REGISTROVAT' />		
 	</form>
 </div>
-<div id="hlavni_obsah"><?php
+<div id="login"><?php
 
 	#vypis message
 	$msg = "<p id='msg'>". $_SESSION['msg']. "</p>";
@@ -33,6 +33,6 @@
 	<form method='post' action='./akce/login.php'>
 		<input type='text' name='nick' placeholder='Uživatelské jméno' value='<?php echo $nick ?>' />
 		<input type='password' name='pw' placeholder='Heslo' />
-		<input class='btn large left' type='submit' value='Přihlásit' />		
+		<input class='btn large left' type='submit' value='PŘIHLÁSIT' />		
 	</form>
 </div>
