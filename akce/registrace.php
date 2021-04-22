@@ -49,11 +49,12 @@ if($continue):
 	INSERT INTO 
 		uzivatele(nick, heslo)			
 	VALUES
-		('$nick', MD5( '$pw' ));
+		('$nick', SHA1( '$pw' ));
 	";
 
 	#zapise uzivatele do db
 	$q_link = mysqli_query($connection, $q);
+	echo mysqli_error($connection);
 
 	#druha query, ktera si najde id uzivatele (posledni vytvorene)
 	$q = "SELECT LAST_INSERT_ID() as id;";

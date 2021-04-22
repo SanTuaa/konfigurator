@@ -27,7 +27,7 @@ elseif(!$pw_real):
 	$msg = "Uživatel s tímto jménem neexistuje.";
 
 #nesedi heslo
-elseif($pw_real != md5($pw)):
+elseif($pw_real != sha1($pw)):
 	$continue = false;
 	$msg = "Zadali jste nesprávné heslo.";
 

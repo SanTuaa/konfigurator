@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Počítač: localhost
--- Vygenerováno: Úterý 06. dubna 2021, 22:00
+-- Vygenerováno: Čtvrtek 22. dubna 2021, 16:16
 -- Verze MySQL: 5.0.51
 -- Verze PHP: 5.2.6
 
@@ -399,14 +399,14 @@ CREATE TABLE IF NOT EXISTS `sestavy` (
   `uzivatel` mediumint(8) unsigned default NULL,
   `jmeno` varchar(64) collate utf8_czech_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=4 ;
 
 --
 -- Vypisuji data pro tabulku `sestavy`
 --
 
 INSERT INTO `sestavy` (`id`, `uzivatel`, `jmeno`) VALUES
-(1, 1, 'Simonova sestava');
+(3, 4, 'Testerova sestava');
 
 -- --------------------------------------------------------
 
@@ -420,18 +420,16 @@ CREATE TABLE IF NOT EXISTS `sestavy_komp` (
   `id_sestavy` mediumint(8) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `id_komponenty` (`id_komponenty`,`id_sestavy`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=15 ;
 
 --
 -- Vypisuji data pro tabulku `sestavy_komp`
 --
 
 INSERT INTO `sestavy_komp` (`id`, `id_komponenty`, `id_sestavy`) VALUES
-(1, 3, 1),
-(2, 8, 1),
-(3, 16, 1),
-(4, 26, 1),
-(5, 30, 1);
+(12, 1, 3),
+(13, 3, 3),
+(14, 28, 3);
 
 -- --------------------------------------------------------
 
@@ -442,13 +440,14 @@ INSERT INTO `sestavy_komp` (`id`, `id_komponenty`, `id_sestavy`) VALUES
 CREATE TABLE IF NOT EXISTS `uzivatele` (
   `id` mediumint(8) unsigned NOT NULL auto_increment,
   `nick` varchar(64) collate utf8_czech_ci NOT NULL,
-  `heslo` varchar(64) collate utf8_czech_ci NOT NULL,
+  `heslo` char(40) collate utf8_czech_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=5 ;
 
 --
 -- Vypisuji data pro tabulku `uzivatele`
 --
 
 INSERT INTO `uzivatele` (`id`, `nick`, `heslo`) VALUES
-(1, 'Simon', 'ab42ca8854657392a64ed791c65b369a');
+(3, 'tester_sha', '471ec8c7b38a46852cd70b954b2ebbc9a008bba5'),
+(4, 'tester2', '426b26e43bb6469d0955cbb315de38890c55839d');
